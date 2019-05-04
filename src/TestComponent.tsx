@@ -5,8 +5,6 @@
 namespace myapp {
 	const Component = preact.Component;
 	const h = preact.h;
-  const Router = preactRouter;
-  
   
   export interface AppProps {
     name: string;
@@ -16,7 +14,7 @@ namespace myapp {
     name: string;
   }
 
-  export class App extends Component<AppState> { 
+  export class TestComponent extends Component<AppState> { 
     constructor(props: AppProps) {
       super(props);
       this.state = { name: props.name, status: "initial" };

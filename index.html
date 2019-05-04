@@ -10,34 +10,15 @@
 </head>
 <body>
   <script src="..\node_modules\preact\dist\preact.min.js"></script>
+
+  <!-- WORKS WITH CHROME REACT DEV TOOLS WHEN NEEDED:  -->
+  <script src="..\node_modules\preact\devtools.js"></script> 
+
   <script src="..\node_modules\preact-router\dist\preact-router.js"></script>
   <script src="..\node_modules\unistore\full\preact.umd.js"></script>
-  <script src="./app.js"></script>
+  <script src="./TestComponent.js"></script>
+  <script src="./index.js"></script>
   <script src="./Routes.js"></script>
-
-<script>
-// STUDY: Bundling best practices with micro libraries:
-// https://medium.com/@kelin2025/so-you-wanna-use-es6-modules-714f48b3a953
-// https://stackoverflow.com/questions/50124241/including-a-iife-module-in-bundle
-// https://engineering.mixmax.com/blog/rollup-externals
-// https://stackoverflow.com/questions/34866510/building-a-javascript-library-why-use-an-iife-this-way
-
-// https://dominicstpierre.com/how-to-start-with-typescript-and-preact-a9ea3e0ba4dc
-// https://www.contentful.com/blog/2018/01/23/how-to-write-reusable-sane-api-based-components/
-// https://custom-elements-everywhere.com
-// https://medium.com/@ankur.kus1/building-plug-and-play-web-modules-using-preact-5a00fc1d9d8f
-// https://github.com/bspaulding/preact-custom-element
-// https://github.com/developit/preact/releases/tag/10.0.0-alpha.0
-// https://github.com/master-atul/webcomponents-with-react-webcomponentify
-// https://www.atulr.com/webcomponents-with-react-webcomponentify/
-// https://www.atulr.com/webcomponents-with-react-webcomponentify/
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const h = preact.h, render = preact.render; // IMPORTS, can inject with destructor parameter!!!
-    render(h(myapp.xStart), document.body);
-    render(h(myapp.xStart2), document.body);
-  });  
-</script>
 
 </body>
 </html>

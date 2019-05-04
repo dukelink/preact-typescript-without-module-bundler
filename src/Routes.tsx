@@ -1,24 +1,15 @@
-// Preact imports:
 /// <reference path="../node_modules/preact/dist/preact.d.ts" />
-
 /// <reference path="../node_modules/preact-router/index.d.ts" />
-declare function preactRouter();
-
 namespace myapp {
-	const Component = preact.Component;
-	const h = preact.h;
-	const Router = preactRouter;
-
-//	declare function Router() : JSX.Element;
-
-	export const xStart = () => ( <Main /> )
-	export const xStart2 = () => ( <MainRoutes /> )
+	// Imports:
+	declare function preactRouter();
+	const Component=preact.Component,h=preact.h, Router=preactRouter;
 
 	export class MainRoutes extends Component<{}> 
 	{ render = () => (
 		<Router>
-			<App path="/Component1" name='Component 1' />
-			<App path="/Component2" name='Component 2' />
+			<TestComponent path="/Component1" name='Component 1' />
+			<TestComponent path="/Component2" name='Component 2' />
 		</Router>
 	)}
 
