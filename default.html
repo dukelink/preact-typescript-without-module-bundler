@@ -8,11 +8,8 @@
   <base href="./dist/">
 </head>
 <body>
-  <script src="..\node_modules\preact\dist\preact.min.js"></script>
-  <script src="..\node_modules\preact-router\dist\preact-router.js"></script>
-  <script src="..\node_modules\unistore\full\preact.umd.js"></script>
+  <script src="./index.js"></script>
   <script src="./app.js"></script>
-  <script src="./Routes.js"></script>
 
 <script>
 // https://dominicstpierre.com/how-to-start-with-typescript-and-preact-a9ea3e0ba4dc
@@ -26,14 +23,10 @@
 // https://www.atulr.com/webcomponents-with-react-webcomponentify/
 
   document.addEventListener("DOMContentLoaded", function() {
-    var x
-    x= myapp.xStart2;
+
+    var x= preact.xStart;
     x = preact.h(x);
     preact.render(x, document.getElementById("app"));
-
-
-    const Router = preactRouter;
-
     var h = preact.h;  // for convenience
       
         // an App classful component
@@ -42,7 +35,7 @@
           return h('div', { class:'app' },
             h('h1', null, 'Hello, World!'),
             h('ol', null,
-              h('li', null, 'Item One'),
+              h('li', null, 'Item One!!!!'),
               h('li', null, 'Item Two')
             )
           );
