@@ -16,26 +16,29 @@ namespace myapp {
     name: string;
   }
 
-  export const xStart = () => ( <App name="cool working" /> )
-
   export class App extends Component<AppState> { 
     constructor(props: AppProps) {
       super(props);
-
-      this.state = { name: props.name };
+      this.state = { name: props.name, status: "initial" };
     }
 
     componentDidMount() {
       setTimeout(() => { 
         var state : any = this.state;
-        state.name = "Preact's [componentDidMount] worked as expected!";
+        state.status = "componentDidMount() lifecycle event called.";
         this.setState(state);
       }, 2000);
     }
 
-    render(props: AppProps, state: AppState) {
-      return <h1>props: {props.name} state: {state.name}</h1>;
-    }
+    render = (props: AppProps, state: AppState) => (
+      <div>
+        <h1>{props.name}</h1>
+        <ul>
+          <li>props:<br/>{JSON.stringify(props)}</li> 
+          <li>state:<br/>{JSON.stringify(state)}</li>
+        </ul>
+      </div>      
+    )
   }
 
 }
