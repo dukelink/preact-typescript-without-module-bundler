@@ -4,8 +4,8 @@ namespace myapp {
     document.addEventListener("DOMContentLoaded", function() {
         const h = preact.h, render = preact.render; // IMPORTS, can inject with destructor parameter!!!
 
-        render(h(Main, null), document.body);
-        render(h(MainRoutes, null), document.body);
+        render(h(routes.Main, null), document.body);
+        render(h(routes.MainRoutes, null), document.body);
     });  
 }
 // STUDY: Bundling best practices with micro libraries:
