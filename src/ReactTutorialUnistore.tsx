@@ -1,8 +1,14 @@
 /// <reference path="../node_modules/preact/dist/preact.d.ts" />
+/// <reference path="../node_modules/unistore/index.d.ts" />
+/// <reference path="../node_modules/unistore/preact.d.ts" />
 
-namespace reactTutorial {
+namespace reactTutorialUnistore {
 	// Imports:
     const Component=preact.Component,h=preact.h;
+    declare var unitstore : { createStore : ()=>{}, Provider : ()=>{}, connect : ()=>{} };
+    const { createStore, Provider, connect } = unitstore;
+
+    let store = { name : '', job : '' };
 
     export class App extends Component {
         state = {

@@ -4,26 +4,44 @@
 namespace routes {
 	// Imports:
 	declare function preactRouter();
-	const Component=preact.Component,h=preact.h, Router=preactRouter;
+//	declare function Link({children,class:any,href});
 
-	export class MainRoutes extends Component<{}> 
+//	debugger;
+
+	const 
+		Component = preact.Component,
+		h = preact.h, 
+		Router : any = preactRouter,
+		Link : any = function(props) { 
+			// Existing hook can allow implementation of activeClassName
+			// if I don't want to figure out how to convert Match to IIFE / UMD module
+			// using Rollup or similar bundler....
+			console.log(props);
+			console.log(Router.Link(props));
+			return Router.Link(props) 
+		};
+
+	export class MainRoutes extends Component
 	{ render = () => (
 		<Router>
+			<div path="/" style="margin-left: 50%; margin-top:25%; position: relative; left: -50px; width: 200px">WE ARE HOME!</div>
 			<myapp.TestComponent path="/Component1" name='Component 1' />
 			<myapp.TestComponent path="/Component2" name='Component 2' />
 			<reactApiTutorial.App path="/ReactApiTutorial" />
 			<reactTutorial.App path="/ReactTutorial" />
+			<reactTutorialUnistore.App path="/ReactTutorialUnistore" />
 		</Router>
 	)}
 
-	export class Main extends Component<{}> 
+	export class Main extends Component
 	{ render = () => (
 		<header>
-			<a class='logo' href='/'>PREACT-DEMOS</a>
-			<a class='button' href='/Component1'>Component 1</a>
+			<Link activeClassName='logo' class='logo' href='/'>PREACT-DEMOS</Link>
+			<Link activeClassName='logo' class='button' href='/Component1'>Component 1</Link>
 			<a class='button' href='/Component2'>Component 2</a>
 			<a class='button' href='/ReactApiTutorial'>React API Tutorial</a>
 			<a class='button' href='/ReactTutorial'>React Tutorial</a>
+			<a class='button' href='/ReactTutorialUnistore'>Tutorial Unistore</a>
 		</header>
 	)}
 
