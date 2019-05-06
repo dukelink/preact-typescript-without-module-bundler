@@ -1,151 +1,72 @@
 /// <reference path="../node_modules/preact/dist/preact.d.ts" />
-/// <reference path="../node_modules/unistore/index.d.ts" />
-/// <reference path="../node_modules/unistore/preact.d.ts" />
+/// <reference path="unistore0.d.ts" />
+/// <reference path="unistore1.d.ts" />
+
+//import createStore from "unistore";
 
 namespace reactTutorialUnistore {
 	// Imports:
     const Component=preact.Component,h=preact.h;
-    declare var unitstore : { createStore : ()=>{}, Provider : ()=>{}, connect : ()=>{} };
-    const { createStore, Provider, connect } = unitstore;
 
-    let store = { name : '', job : '' };
+    const createStore = unistore.createStore;
+    const connect = unistore.connect;
+    const Provider = unistore.Provider;
+
+    let store = createStore({ count: 0 })
+
+    // If actions is a function, it gets passed the store:
+    let actions = store => ({
+      // Actions can just return a state update:
+      increment(state) {
+        return { count: state.count+1 }
+      },
+    
+      // The above example as an Arrow Function:
+      increment2: ({ count }) => ({ count: count+1 }),
+    
+      //Actions receive current state as first parameter and any other params next
+      //check this function as <button onClick={incrementAndLog}>
+      incrementAndLog: ({ count }, event) => {
+        console.info(event)
+        return { count: count+1 }
+      },
+    
+      // Async actions can be pure async/promise functions:
+      async getStuff(state) {
+        let res = await fetch('/foo.json')
+        return { stuff: await res.json() }
+      },
+    
+      // ... or just actions that call store.setState() later:
+      incrementAsync(state) {
+        setTimeout( () => {
+          store.setState({ count: state.count+1 })
+        }, 100)
+      }
+    })
+    
+    const App1 = connect<any,any,any,any>('count', actions)(   // TODO: too many anys???????
+        ({ count, increment }) => (
+          <div>
+            <p>Count: {count}</p>
+            <button onClick={increment}>Increment</button>
+          </div>
+        )
+      )
+    
 
     export class App extends Component {
-        state = {
-            characters: []
-        };
-    
-        removeCharacter = index => {
-            const { characters } = this.state;
-        
-            this.setState({
-                characters: characters.filter((character, i) => { 
-                    return i !== index;
-                })
-            });
-        }
-    
-        handleSubmit = character => {
-            this.setState({characters: [...this.state.characters, character]});
-        }
-    
         render() {
-            const { characters } = this.state;
-            
-            return (
-                <div className="container">
-                    <h1>React Tutorial</h1>
-                    <p>Add a character with a name and a job to the table.</p>
-                    <Table
-                        characterData={characters}
-                        removeCharacter={this.removeCharacter}
-                    />
-                    <h3>Add New</h3>
-                    <Form handleSubmit={this.handleSubmit} />
-                </div>
-            );
+            return <DefaultApp/>
         }
     }
 
-    export interface AppState {
-        name : string;
-        job : string;
-    }
+    const DefaultApp = () => (
+      <Provider store={store}>
+        <App1 />
+      </Provider>
+    )    
 
-    interface AppProps {
-        handleSubmit: (character) => (void);
-    }
-
-    class Form extends Component<AppProps,AppState> // These interface required for TS
-    {
-        initialState = {
-            name: '',
-            job: ''
-        };
-
-        constructor(props:AppProps) {
-            super(props);                
-            this.state = this.initialState;
-        }
-    
-        handleChange = event => {
-            const { name, value } = event.target;
-  
-            const newState : any = { [name] : value }; // separate out as 'any' type require
-            this.setState(newState);
-        }
-    
-        onFormSubmit = (event) => {
-            event.preventDefault();
-            
-            this.props.handleSubmit(this.state);
-            this.setState(this.initialState);
-        }
-    
-        render() {
-            const { name, job } = this.state;  // destructuring requires interfaces with TS
-
-            return (
-                <form onSubmit={this.onFormSubmit}>
-                    <label>Name</label>
-                    <input 
-                        type="text" 
-                        name="name" 
-                        value={name} 
-                        onChange={this.handleChange} />
-                    <label>Job</label>
-                    <input 
-                        type="text" 
-                        name="job" 
-                        value={job} 
-                        onChange={this.handleChange} />
-                    <button type="submit">
-                        Submit
-                    </button>
-                </form>
-            );
-        }
-    }
-    
-    const TableHeader = () => { 
-        return (
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Job</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-        );
-    }
-    
-    const TableBody = props => { 
-        const rows = props.characterData.map((row, index) => {
-            return (
-                <tr key={index}>
-                    <td>{row.name}</td>
-                    <td>{row.job}</td>
-                    <td><button onClick={() => props.removeCharacter(index)}>Delete</button></td>
-                </tr>
-            );
-        });
-    
-        return <tbody>{rows}</tbody>;
-    }
-    
-    class Table extends Component<{characterData,removeCharacter}> {
-        render() {
-            const { characterData, removeCharacter } = this.props;
-    
-            return (
-                <table>
-                    <TableHeader />
-                    <TableBody characterData={characterData} removeCharacter={removeCharacter} />
-                </table>
-            );
-        }
-    }
-    
 }
 
 

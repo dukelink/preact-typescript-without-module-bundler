@@ -46,3 +46,9 @@ namespace routes {
 	)}
 
 }
+
+
+// STUDY: 
+// Module systems: 
+// https://medium.freecodecamp.org/anatomy-of-js-module-systems-and-building-libraries-fadcd8dbd0e
+// http://2ality.com/2017/01/babel-esm-spec-mode.html
