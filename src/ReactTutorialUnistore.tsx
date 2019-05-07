@@ -12,10 +12,20 @@ namespace reactTutorialUnistore {
     const connect = unistore.connect;
     const Provider = unistore.Provider;
 
-    let store = createStore({ count: 0 })
+    let data = { count: 0 };
+
+    let store = createStore(data); // Prob. duplicates storage overhead if 'data' retained????
 
     // If actions is a function, it gets passed the store:
     let actions = store => ({
+
+      //
+      // QX: All function that return a value are 'actions'???
+      //     and returned value is updated state?????
+      //     - "connect" function that returns a Component
+      //       is the key to this functionality...
+      //
+      
       // Actions can just return a state update:
       increment(state) {
         return { count: state.count+1 }
@@ -26,8 +36,11 @@ namespace reactTutorialUnistore {
     
       //Actions receive current state as first parameter and any other params next
       //check this function as <button onClick={incrementAndLog}>
-      incrementAndLog: ({ count }, event) => {
+      incrementAndLog: (state, event) => {
+        const { count } = state;
         console.info(event)
+        console.log(data); // never changes!
+        console.log(state);
         return { count: count+1 }
       },
     
@@ -39,17 +52,23 @@ namespace reactTutorialUnistore {
     
       // ... or just actions that call store.setState() later:
       incrementAsync(state) {
+        console.log(new Date());
+        console.log(state);
         setTimeout( () => {
           store.setState({ count: state.count+1 })
-        }, 100)
+        }, 1000)
       }
     })
     
     const App1 = connect<any,any,any,any>('count', actions)(   // TODO: too many anys???????
-        ({ count, increment }) => (
+        ({ count, incrementAndLog, increment2, incrementAsync }) => (
           <div>
-            <p>Count: {count}</p>
-            <button onClick={increment}>Increment</button>
+            <p>Count: {count} (direc state update)</p>
+            <button onClick={incrementAndLog}>Increment</button>
+            <p>Count: {count} (delayed setState)</p>
+            <button onClick={increment2}>Increment 2</button>
+            <p>Count: {count} (delayed setState)</p>
+            <button onClick={incrementAsync}>Increment Async - 1 second delay</button>
           </div>
         )
       )
@@ -76,3 +95,15 @@ namespace reactTutorialUnistore {
 // And see responses of upgraded versions such as:
 // https://react-hook-form.now.sh/ and code at: https://github.com/bluebill1049/react-hook-form
 // https://stackblitz.com/edit/react-ts-at7b9k
+
+// https://preactjs.com/guide/linked-state
+// https://medium.com/@tevthuku/all-hail-unistore-9b2f79184592
+// https://github.com/developit/unistore/issues/111
+
+// https://preset-env.cssdb.org
+// http://rudiyardley.com/redux-single-line-of-code-rxjs/
+
+// https://blog.logrocket.com/5-redux-libraries-to-improve-code-reuse-9f93eaceaa83
+
+// https://reactjs.org/docs/lifting-state-up.html
+
