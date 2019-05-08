@@ -6,7 +6,7 @@
         "sourceMap": false,
         "experimentalDecorators": true,
         "lib": ["es2016", "es6", "dom", "es5"],
-        "outDir": ".\\dist",
+        "outDir": ".\\docs",
         "rootDir": "./src",
         "jsx": "react",
         "jsxFactory": "h",
