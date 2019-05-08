@@ -59,8 +59,6 @@ var reactTutorialUnistore;
     class App extends Component {
         render() {
             return (h("div", null,
-                h(DefaultApp, null),
-                h("hr", null),
                 h(DefaultApp, null)));
         }
     }
