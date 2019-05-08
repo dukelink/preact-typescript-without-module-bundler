@@ -76,7 +76,11 @@ namespace reactTutorialUnistore {
 
     export class App extends Component {
         render() {
-            return <DefaultApp/>
+            return (
+            <div>
+              <DefaultApp/>
+            </div>
+            )
         }
     }
 
@@ -107,3 +111,4 @@ namespace reactTutorialUnistore {
 
 // https://reactjs.org/docs/lifting-state-up.html
 
+// https://stackoverflow.com/questions/50779789/preact-cannot-invoke-passed-function-into-child-component-with-unistoreredux
