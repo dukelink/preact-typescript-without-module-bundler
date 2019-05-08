@@ -24,7 +24,7 @@
 /node_modules/preact/debug
 /node_modules/preact/devtools
 /node_modules/preact/src
-/node_modules/preact/dist/preact.j*
+/node_modules/preact/dist/preact.js.flow
 /node_modules/preact/dist/preact.d*
 /node_modules/preact/dist/preact.mj*
 /node_modules/unistore/dist
