@@ -9,14 +9,7 @@
   },
   "keywords": [],
   "author": "Duke",
-  "dependencies": {
-    "preact": "8.4.2",
-    "preact-router": "2.6.1",
-    "unistore": "^3.4.1",
-    "mini.css": "3.0.1",
-    "preact-redux": "2.0.3",
-    "redux": "4.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "typescript": "^3.2.2"
   }
