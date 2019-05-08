@@ -6,7 +6,38 @@
 !/dist/libs
 
 # dependencies
-/node_modules
+/node_modules/.bin
+/node_modules/js-tokens
+/node_modules/loose-envify
+/node_modules/mini.css
+!/node_modules/mini.css/dist/mini-default.min.css
+/node_modules/symbol-observable
+/node_modules/preact-redux
+/node_modules/redux
+/node_modules/preact-router/m*
+/node_modules/preact-router/p*
+/node_modules/preact-router/r*
+/node_modules/preact-router/l*
+/node_modules/preact-router/i*
+/node_modules/preact-router/dist/*.es.*
+/node_modules/preact-router/src
+/node_modules/preact/debug
+/node_modules/preact/devtools
+/node_modules/preact/src
+/node_modules/preact/dist/preact.j*
+/node_modules/preact/dist/preact.d*
+/node_modules/preact/dist/preact.mj*
+/node_modules/unistore/dist
+/node_modules/unistore/src
+/node_modules/unistore/*.*s
+/node_modules/unistore/*.json
+/node_modules/unistore/*.map
+/node_modules/unistore/*.md
+/node_modules/unistore/full/r*
+/node_modules/unistore/full/preact.e*
+/node_modules/unistore/full/preact.j*
+/node_modules/preact/*.*
+/node_modules/preact/LICENSE
 typescript
 /bower_components
 
@@ -39,3 +70,6 @@ Thumbs.db
 #Optional Web App Support directories
 /Bin
 /App_Code
+
+
+#mini.css/dist/mini-default.min.css
