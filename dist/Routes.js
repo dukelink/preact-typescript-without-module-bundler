@@ -14,7 +14,8 @@ var routes;
                 h(myapp.TestComponent, { path: "/Component2", name: 'Component 2' }),
                 h(reactApiTutorial.App, { path: "/ReactApiTutorial" }),
                 h(reactTutorial.App, { path: "/ReactTutorial" }),
-                h(reactTutorialUnistore.App, { path: "/ReactTutorialUnistore" })));
+                h(UnistoreDemo.App, { path: "/UnistoreDemo" }),
+                h(reactUnistore.App, { path: "/reactUnistore" })));
         }
     }
     routes.MainRoutes = MainRoutes;
@@ -23,11 +24,12 @@ var routes;
             super(...arguments);
             this.render = () => (h("header", null,
                 h(Link, { activeClassName: 'logo', class: 'logo', href: '/' }, "PREACT-DEMOS"),
-                h(Link, { activeClassName: 'logo', class: 'button', href: '/Component1' }, "Component 1"),
-                h("a", { class: 'button', href: '/Component2' }, "Component 2"),
-                h("a", { class: 'button', href: '/ReactApiTutorial' }, "React API Tutorial"),
-                h("a", { class: 'button', href: '/ReactTutorial' }, "React Tutorial"),
-                h("a", { class: 'button', href: '/ReactTutorialUnistore' }, "Tutorial Unistore")));
+                h(Link, { activeClassName: 'logo', class: 'button', href: '/Component1' }, "Comp 1"),
+                h("a", { class: 'button', href: '/Component2' }, "Comp 2"),
+                h("a", { class: 'button', href: '/ReactApiTutorial' }, "API"),
+                h("a", { class: 'button', href: '/ReactTutorial' }, "React"),
+                h("a", { class: 'button', href: '/UnistoreDemo' }, "Unistore"),
+                h("a", { class: 'button', href: '/reactUnistore' }, "React Unistore")));
         }
     }
     routes.Main = Main;

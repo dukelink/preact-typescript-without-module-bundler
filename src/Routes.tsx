@@ -29,7 +29,8 @@ namespace routes {
 			<myapp.TestComponent path="/Component2" name='Component 2' />
 			<reactApiTutorial.App path="/ReactApiTutorial" />
 			<reactTutorial.App path="/ReactTutorial" />
-			<reactTutorialUnistore.App path="/ReactTutorialUnistore" />
+			<UnistoreDemo.App path="/UnistoreDemo" />
+			<reactUnistore.App path="/reactUnistore" />
 		</Router>
 	)}
 
@@ -37,11 +38,12 @@ namespace routes {
 	{ render = () => (
 		<header>
 			<Link activeClassName='logo' class='logo' href='/'>PREACT-DEMOS</Link>
-			<Link activeClassName='logo' class='button' href='/Component1'>Component 1</Link>
-			<a class='button' href='/Component2'>Component 2</a>
-			<a class='button' href='/ReactApiTutorial'>React API Tutorial</a>
-			<a class='button' href='/ReactTutorial'>React Tutorial</a>
-			<a class='button' href='/ReactTutorialUnistore'>Tutorial Unistore</a>
+			<Link activeClassName='logo' class='button' href='/Component1'>Comp 1</Link>
+			<a class='button' href='/Component2'>Comp 2</a>
+			<a class='button' href='/ReactApiTutorial'>API</a>
+			<a class='button' href='/ReactTutorial'>React</a>
+			<a class='button' href='/UnistoreDemo'>Unistore</a>
+			<a class='button' href='/reactUnistore'>React Unistore</a>
 		</header>
 	)}
 

@@ -4,15 +4,14 @@
 
 //import createStore from "unistore";
 
-namespace reactTutorialUnistore {
-	// Imports:
+namespace UnistoreDemo {
+	  // Imports:
     const Component=preact.Component,h=preact.h;
-
     const createStore = unistore.createStore;
     const connect = unistore.connect;
     const Provider = unistore.Provider;
 
-    let data = { count: 0 };
+    const data = { count: 0 };
 
     let store = createStore(data); // Prob. duplicates storage overhead if 'data' retained????
 
