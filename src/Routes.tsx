@@ -31,6 +31,7 @@ namespace routes {
 			<reactTutorial.App path="/ReactTutorial" />
 			<UnistoreDemo.App path="/UnistoreDemo" />
 			<reactUnistore.App path="/reactUnistore" />
+			<stencilWC.myDropdown path="/stencilWC" />
 		</Router>
 	)}
 
@@ -43,7 +44,7 @@ namespace routes {
 			<a class='button' href='/ReactApiTutorial'>API</a>
 			<a class='button' href='/ReactTutorial'>React</a>
 			<a class='button' href='/UnistoreDemo'>Unistore</a>
-			<a class='button' href='/reactUnistore'>React Unistore</a>
+			<a class='button' href='/stencilWC'>Stencil Cust. Elem</a>
 		</header>
 	)}
 

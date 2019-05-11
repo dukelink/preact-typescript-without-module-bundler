@@ -15,7 +15,8 @@ var routes;
                 h(reactApiTutorial.App, { path: "/ReactApiTutorial" }),
                 h(reactTutorial.App, { path: "/ReactTutorial" }),
                 h(UnistoreDemo.App, { path: "/UnistoreDemo" }),
-                h(reactUnistore.App, { path: "/reactUnistore" })));
+                h(reactUnistore.App, { path: "/reactUnistore" }),
+                h(stencilWC.myDropdown, { path: "/stencilWC" })));
         }
     }
     routes.MainRoutes = MainRoutes;
@@ -29,7 +30,7 @@ var routes;
                 h("a", { class: 'button', href: '/ReactApiTutorial' }, "API"),
                 h("a", { class: 'button', href: '/ReactTutorial' }, "React"),
                 h("a", { class: 'button', href: '/UnistoreDemo' }, "Unistore"),
-                h("a", { class: 'button', href: '/reactUnistore' }, "React Unistore")));
+                h("a", { class: 'button', href: '/stencilWC' }, "Stencil Cust. Elem")));
         }
     }
     routes.Main = Main;
